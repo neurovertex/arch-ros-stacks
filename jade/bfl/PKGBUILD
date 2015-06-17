@@ -1,33 +1,29 @@
 # Script generated with import_catkin_packages.py
 # For more information: https://github.com/bchretien/arch-ros-stacks
-pkgdesc="ROS - Low-level build system macros and infrastructure for ROS."
-url='http://www.ros.org/wiki/catkin'
+pkgdesc="ROS - This package contains a recent version of the Bayesian Filtering Library (BFL), distributed by the Orocos Project."
+url='http://ros.org/wiki/bfl'
 
-pkgname='ros-jade-catkin'
-pkgver='0.6.14'
-_pkgver_patch=0
+pkgname='ros-jade-bfl'
+pkgver='0.7.0'
+_pkgver_patch=2
 arch=('any')
-pkgrel=1
-license=('BSD')
+pkgrel=3
+license=('LGPL')
 
 ros_makedepends=()
 makedepends=('cmake' 'git' 'ros-build-tools'
   ${ros_makedepends[@]}
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  boost
+  cppunit)
 
-ros_depends=()
+ros_depends=(ros-jade-catkin)
 depends=(${ros_depends[@]}
-  gtest
-  python2-nose
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  boost
+  cppunit)
 
-_tag=release/jade/catkin/${pkgver}-${_pkgver_patch}
-_dir=catkin
-source=("${_dir}"::"git+https://github.com/ros-gbp/catkin-release.git"#tag=${_tag})
+_tag=release/jade/bfl/${pkgver}-${_pkgver_patch}
+_dir=bfl
+source=("${_dir}"::"git+https://github.com/ros-gbp/bfl-release.git"#tag=${_tag})
 md5sums=('SKIP')
 
 build() {

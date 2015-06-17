@@ -1,33 +1,25 @@
 # Script generated with import_catkin_packages.py
 # For more information: https://github.com/bchretien/arch-ros-stacks
-pkgdesc="ROS - Low-level build system macros and infrastructure for ROS."
-url='http://www.ros.org/wiki/catkin'
+pkgdesc="ROS - This package provides a set of simple math utilities to work with angles."
+url='http://ros.org/wiki/angles'
 
-pkgname='ros-jade-catkin'
-pkgver='0.6.14'
+pkgname='ros-jade-angles'
+pkgver='1.9.10'
 _pkgver_patch=0
 arch=('any')
 pkgrel=1
 license=('BSD')
 
-ros_makedepends=()
+ros_makedepends=(ros-jade-catkin)
 makedepends=('cmake' 'git' 'ros-build-tools'
-  ${ros_makedepends[@]}
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  ${ros_makedepends[@]})
 
 ros_depends=()
-depends=(${ros_depends[@]}
-  gtest
-  python2-nose
-  python2-catkin_pkg
-  python2-empy
-  python2)
+depends=(${ros_depends[@]})
 
-_tag=release/jade/catkin/${pkgver}-${_pkgver_patch}
-_dir=catkin
-source=("${_dir}"::"git+https://github.com/ros-gbp/catkin-release.git"#tag=${_tag})
+_tag=release/jade/angles/${pkgver}-${_pkgver_patch}
+_dir=angles
+source=("${_dir}"::"git+https://github.com/ros-gbp/geometry_angles_utils-release.git"#tag=${_tag})
 md5sums=('SKIP')
 
 build() {

@@ -1,33 +1,30 @@
 # Script generated with import_catkin_packages.py
 # For more information: https://github.com/bchretien/arch-ros-stacks
-pkgdesc="ROS - Low-level build system macros and infrastructure for ROS."
-url='http://www.ros.org/wiki/catkin'
+pkgdesc="ROS - tf2_msgs."
+url='http://www.ros.org/wiki/tf2_msgs'
 
-pkgname='ros-jade-catkin'
-pkgver='0.6.14'
+pkgname='ros-jade-tf2-msgs'
+pkgver='0.5.11'
 _pkgver_patch=0
 arch=('any')
 pkgrel=1
 license=('BSD')
 
-ros_makedepends=()
+ros_makedepends=(ros-jade-actionlib-msgs
+  ros-jade-message-generation
+  ros-jade-geometry-msgs
+  ros-jade-catkin)
 makedepends=('cmake' 'git' 'ros-build-tools'
-  ${ros_makedepends[@]}
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  ${ros_makedepends[@]})
 
-ros_depends=()
-depends=(${ros_depends[@]}
-  gtest
-  python2-nose
-  python2-catkin_pkg
-  python2-empy
-  python2)
+ros_depends=(ros-jade-actionlib-msgs
+  ros-jade-message-generation
+  ros-jade-geometry-msgs)
+depends=(${ros_depends[@]})
 
-_tag=release/jade/catkin/${pkgver}-${_pkgver_patch}
-_dir=catkin
-source=("${_dir}"::"git+https://github.com/ros-gbp/catkin-release.git"#tag=${_tag})
+_tag=release/jade/tf2_msgs/${pkgver}-${_pkgver_patch}
+_dir=tf2_msgs
+source=("${_dir}"::"git+https://github.com/ros-gbp/geometry_experimental-release.git"#tag=${_tag})
 md5sums=('SKIP')
 
 build() {

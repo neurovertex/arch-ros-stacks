@@ -1,33 +1,38 @@
 # Script generated with import_catkin_packages.py
 # For more information: https://github.com/bchretien/arch-ros-stacks
-pkgdesc="ROS - Low-level build system macros and infrastructure for ROS."
-url='http://www.ros.org/wiki/catkin'
+pkgdesc="ROS - This package contains a class for converting from a 2D laser scan as defined by sensor_msgs/LaserScan into a point cloud as defined by sensor_msgs/PointCloud or sensor_msgs/PointCloud2."
+url='http://ros.org/wiki/laser_geometry'
 
-pkgname='ros-jade-catkin'
-pkgver='0.6.14'
+pkgname='ros-jade-laser-geometry'
+pkgver='1.6.4'
 _pkgver_patch=0
 arch=('any')
 pkgrel=1
 license=('BSD')
 
-ros_makedepends=()
+ros_makedepends=(ros-jade-cmake-modules
+  ros-jade-sensor-msgs
+  ros-jade-roscpp
+  ros-jade-catkin
+  ros-jade-tf
+  ros-jade-angles)
 makedepends=('cmake' 'git' 'ros-build-tools'
   ${ros_makedepends[@]}
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  boost
+  eigen3)
 
-ros_depends=()
+ros_depends=(ros-jade-tf
+  ros-jade-sensor-msgs
+  ros-jade-roscpp
+  ros-jade-angles)
 depends=(${ros_depends[@]}
-  gtest
-  python2-nose
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  python2-numpy
+  boost
+  eigen3)
 
-_tag=release/jade/catkin/${pkgver}-${_pkgver_patch}
-_dir=catkin
-source=("${_dir}"::"git+https://github.com/ros-gbp/catkin-release.git"#tag=${_tag})
+_tag=release/jade/laser_geometry/${pkgver}-${_pkgver_patch}
+_dir=laser_geometry
+source=("${_dir}"::"git+https://github.com/ros-gbp/laser_geometry-release.git"#tag=${_tag})
 md5sums=('SKIP')
 
 build() {

@@ -1,33 +1,37 @@
 # Script generated with import_catkin_packages.py
 # For more information: https://github.com/bchretien/arch-ros-stacks
-pkgdesc="ROS - Low-level build system macros and infrastructure for ROS."
-url='http://www.ros.org/wiki/catkin'
+pkgdesc="ROS - This package provides a recovery behavior for the navigation stack that attempts to clear space by reverting the costmaps used by the navigation stack to the static map outside of a given area."
+url='http://wiki.ros.org/clear_costmap_recovery'
 
-pkgname='ros-jade-catkin'
-pkgver='0.6.14'
+pkgname='ros-jade-clear-costmap-recovery'
+pkgver='1.13.0'
 _pkgver_patch=0
 arch=('any')
 pkgrel=1
 license=('BSD')
 
-ros_makedepends=()
+ros_makedepends=(ros-jade-cmake-modules
+  ros-jade-costmap-2d
+  ros-jade-nav-core
+  ros-jade-roscpp
+  ros-jade-catkin
+  ros-jade-tf
+  ros-jade-pluginlib)
 makedepends=('cmake' 'git' 'ros-build-tools'
   ${ros_makedepends[@]}
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  eigen3)
 
-ros_depends=()
+ros_depends=(ros-jade-tf
+  ros-jade-nav-core
+  ros-jade-roscpp
+  ros-jade-costmap-2d
+  ros-jade-pluginlib)
 depends=(${ros_depends[@]}
-  gtest
-  python2-nose
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  eigen3)
 
-_tag=release/jade/catkin/${pkgver}-${_pkgver_patch}
-_dir=catkin
-source=("${_dir}"::"git+https://github.com/ros-gbp/catkin-release.git"#tag=${_tag})
+_tag=release/jade/clear_costmap_recovery/${pkgver}-${_pkgver_patch}
+_dir=clear_costmap_recovery
+source=("${_dir}"::"git+https://github.com/ros-gbp/navigation-release.git"#tag=${_tag})
 md5sums=('SKIP')
 
 build() {

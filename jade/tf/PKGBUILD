@@ -1,33 +1,46 @@
 # Script generated with import_catkin_packages.py
 # For more information: https://github.com/bchretien/arch-ros-stacks
-pkgdesc="ROS - Low-level build system macros and infrastructure for ROS."
-url='http://www.ros.org/wiki/catkin'
+pkgdesc="ROS - tf is a package that lets the user keep track of multiple coordinate frames over time."
+url='http://www.ros.org/wiki/tf'
 
-pkgname='ros-jade-catkin'
-pkgver='0.6.14'
+pkgname='ros-jade-tf'
+pkgver='1.11.7'
 _pkgver_patch=0
 arch=('any')
 pkgrel=1
 license=('BSD')
 
-ros_makedepends=()
+ros_makedepends=(ros-jade-rostest
+  ros-jade-geometry-msgs
+  ros-jade-std-msgs
+  ros-jade-sensor-msgs
+  ros-jade-message-generation
+  ros-jade-roscpp
+  ros-jade-catkin
+  ros-jade-tf2-ros
+  ros-jade-tf2
+  ros-jade-message-filters
+  ros-jade-rosconsole
+  ros-jade-angles)
 makedepends=('cmake' 'git' 'ros-build-tools'
-  ${ros_makedepends[@]}
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  ${ros_makedepends[@]})
 
-ros_depends=()
+ros_depends=(ros-jade-geometry-msgs
+  ros-jade-std-msgs
+  ros-jade-sensor-msgs
+  ros-jade-message-runtime
+  ros-jade-roscpp
+  ros-jade-tf2-ros
+  ros-jade-tf2
+  ros-jade-roswtf
+  ros-jade-message-filters
+  ros-jade-rosconsole)
 depends=(${ros_depends[@]}
-  gtest
-  python2-nose
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  graphviz)
 
-_tag=release/jade/catkin/${pkgver}-${_pkgver_patch}
-_dir=catkin
-source=("${_dir}"::"git+https://github.com/ros-gbp/catkin-release.git"#tag=${_tag})
+_tag=release/jade/tf/${pkgver}-${_pkgver_patch}
+_dir=tf
+source=("${_dir}"::"git+https://github.com/ros-gbp/geometry-release.git"#tag=${_tag})
 md5sums=('SKIP')
 
 build() {

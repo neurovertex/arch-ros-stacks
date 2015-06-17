@@ -1,33 +1,41 @@
 # Script generated with import_catkin_packages.py
 # For more information: https://github.com/bchretien/arch-ros-stacks
-pkgdesc="ROS - Low-level build system macros and infrastructure for ROS."
-url='http://www.ros.org/wiki/catkin'
+pkgdesc="ROS - A 2D navigation stack that takes in information from odometry, sensor streams, and a goal pose and outputs safe velocity commands that are sent to a mobile base."
+url='http://wiki.ros.org/navigation'
 
-pkgname='ros-jade-catkin'
-pkgver='0.6.14'
+pkgname='ros-jade-navigation'
+pkgver='1.13.0'
 _pkgver_patch=0
 arch=('any')
 pkgrel=1
-license=('BSD')
+license=('BSD,LGPL,LGPL (amcl)')
 
-ros_makedepends=()
+ros_makedepends=(ros-jade-catkin)
 makedepends=('cmake' 'git' 'ros-build-tools'
-  ${ros_makedepends[@]}
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  ${ros_makedepends[@]})
 
-ros_depends=()
-depends=(${ros_depends[@]}
-  gtest
-  python2-nose
-  python2-catkin_pkg
-  python2-empy
-  python2)
+ros_depends=(ros-jade-base-local-planner
+  ros-jade-move-base
+  ros-jade-clear-costmap-recovery
+  ros-jade-map-server
+  ros-jade-global-planner
+  ros-jade-nav-core
+  ros-jade-move-base-msgs
+  ros-jade-voxel-grid
+  ros-jade-carrot-planner
+  ros-jade-rotate-recovery
+  ros-jade-fake-localization
+  ros-jade-dwa-local-planner
+  ros-jade-navfn
+  ros-jade-amcl
+  ros-jade-move-slow-and-clear
+  ros-jade-robot-pose-ekf
+  ros-jade-costmap-2d)
+depends=(${ros_depends[@]})
 
-_tag=release/jade/catkin/${pkgver}-${_pkgver_patch}
-_dir=catkin
-source=("${_dir}"::"git+https://github.com/ros-gbp/catkin-release.git"#tag=${_tag})
+_tag=release/jade/navigation/${pkgver}-${_pkgver_patch}
+_dir=navigation
+source=("${_dir}"::"git+https://github.com/ros-gbp/navigation-release.git"#tag=${_tag})
 md5sums=('SKIP')
 
 build() {

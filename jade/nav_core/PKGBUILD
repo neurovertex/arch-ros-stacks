@@ -1,33 +1,32 @@
 # Script generated with import_catkin_packages.py
 # For more information: https://github.com/bchretien/arch-ros-stacks
-pkgdesc="ROS - Low-level build system macros and infrastructure for ROS."
-url='http://www.ros.org/wiki/catkin'
+pkgdesc="ROS - This package provides common interfaces for navigation specific robot actions."
+url='http://wiki.ros.org/nav_core'
 
-pkgname='ros-jade-catkin'
-pkgver='0.6.14'
+pkgname='ros-jade-nav-core'
+pkgver='1.13.0'
 _pkgver_patch=0
 arch=('any')
 pkgrel=1
 license=('BSD')
 
-ros_makedepends=()
+ros_makedepends=(ros-jade-tf
+  ros-jade-costmap-2d
+  ros-jade-catkin
+  ros-jade-geometry-msgs
+  ros-jade-std-msgs)
 makedepends=('cmake' 'git' 'ros-build-tools'
-  ${ros_makedepends[@]}
-  python2-catkin_pkg
-  python2-empy
-  python2)
+  ${ros_makedepends[@]})
 
-ros_depends=()
-depends=(${ros_depends[@]}
-  gtest
-  python2-nose
-  python2-catkin_pkg
-  python2-empy
-  python2)
+ros_depends=(ros-jade-tf
+  ros-jade-costmap-2d
+  ros-jade-geometry-msgs
+  ros-jade-std-msgs)
+depends=(${ros_depends[@]})
 
-_tag=release/jade/catkin/${pkgver}-${_pkgver_patch}
-_dir=catkin
-source=("${_dir}"::"git+https://github.com/ros-gbp/catkin-release.git"#tag=${_tag})
+_tag=release/jade/nav_core/${pkgver}-${_pkgver_patch}
+_dir=nav_core
+source=("${_dir}"::"git+https://github.com/ros-gbp/navigation-release.git"#tag=${_tag})
 md5sums=('SKIP')
 
 build() {
